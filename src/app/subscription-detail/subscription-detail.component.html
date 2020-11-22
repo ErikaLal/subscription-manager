@@ -1,0 +1,75 @@
+<div *ngIf="subscription">
+    <nav>
+        <h2>Details for {{subscription.name}}</h2>
+        <button class="nav-button" (click)="goBack()">Return</button>
+        <button class="nav-button" (click)="toggleEdit()">{{editText}}</button>  
+    </nav>
+    <img src={{imagesrc}}>
+    <section class="body">   
+      <h3>Basic Information</h3>
+    <div class="data">
+        <label>Name:</label>
+            <div class="value" *ngIf="editing; else elseBlock1">
+                <input [(ngModel)]="subscription.name" placeholder="name"/>
+            </div>
+            <ng-template class="value" #elseBlock1>
+                {{subscription.name}}
+            </ng-template>
+
+    </div>
+    <div class="data">
+        <label>Subscription Type:</label>
+            <div class="value" *ngIf="editing; else elseBlock2">
+                <input [(ngModel)]="subscription.type" placeholder="type"/>
+            </div>
+            <ng-template class="value" #elseBlock2>
+                {{subscription.type}}
+            </ng-template>
+    </div>
+    <div class="data">
+        <label>Cost Per Month:</label>
+            <div class="value" *ngIf="editing; else elseBlock3">
+                <input [(ngModel)]="subscription.costpm" placeholder="cost/month"/>
+            </div>
+            <ng-template class="value" #elseBlock3>
+                {{subscription.costpm}}
+            </ng-template>
+    </div>
+</section>
+<section class="body">
+    <h3>Payment Details</h3>
+    <div class="data">
+        <label>Last Payment:</label>
+            <div class="value" *ngIf="editing; else elseBlock4">
+                    <input type=date 
+                        [(ngModel)]="lastpay" 
+                        value="">
+            </div>
+            <ng-template class="value" #elseBlock4>
+                {{lastpay}}
+            </ng-template>
+    </div>
+    <div class="data">
+        <label>Next Payment:</label>
+            <div class="value" *ngIf="editing; else elseBlock5">
+                    <input type=date 
+                        [(ngModel)]="nextpay" 
+                        value="">
+            </div>
+            <ng-template class="value" #elseBlock5>
+                {{nextpay}}
+            </ng-template>
+    </div>
+    <div class="data">
+        <label>Next Notification:</label>
+            <div class="value" *ngIf="editing; else elseBlock6">
+                    <input type=date 
+                        [(ngModel)]="notification" 
+                        value="">
+            </div>
+            <ng-template class="value"#elseBlock6>
+                {{notification}}
+            </ng-template>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,30 @@
+<h2>All Subscriptions</h2>
+<ul class="subscriptions">
+    <li *ngFor="let subscription of subscriptions">
+        <table>
+            <tr>
+                <th class="name">{{subscription.name}}</th>
+                <th></th>
+                <th class="detail-button">
+                    <button routerLink="/detail/{{subscription.name}}">
+                        <p>Details</p>
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th class="info">
+                    <p class="value">{{subscription.months}}</p>
+                    <p class="text">Months</p>
+                </th>
+                <th class="info">
+                    <p class="value">${{subscription.costpm.toFixed(2)}}</p>
+                    <p class="text">Cost Per Month</p>
+                </th>
+                <th class="info">
+                    <p class="value">${{calcToDate(subscription)}}</p>
+                    <p class="text">Cost To Date</p>
+                </th>
+            </tr>
+        </table>
+    </li>
+</ul>
